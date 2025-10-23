@@ -169,6 +169,18 @@ pnpm storybook
 pnpm test
 ```
 
+### Visual Testing
+
+Visual regression testing is configured with Storybook Test Runner. See [VISUAL_TESTING.md](./VISUAL_TESTING.md) for details.
+
+```bash
+# Development mode (Storybook must be running)
+pnpm test-storybook
+
+# CI mode (builds and serves Storybook automatically)
+pnpm test-storybook:ci
+```
+
 ### Build
 
 ```bash

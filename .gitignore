@@ -36,3 +36,4 @@ storybook-static
 # Visual testing
 test-results/
 playwright-report/
+__image_snapshots__/__diff_output__/
