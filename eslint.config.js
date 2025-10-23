@@ -4,5 +4,5 @@ import storybook from "eslint-plugin-storybook";
 import agent from 'eslint-config-agent';
 
 export default [...agent, {
-  ignores: ['dist/', 'node_modules/', 'coverage/', 'src/stories/', '**/*.stories.tsx', '.storybook/'],
+  ignores: ['dist/', 'node_modules/', 'coverage/', 'src/stories/', '**/*.stories.tsx', '.storybook/', 'storybook-static/'],
 }, ...storybook.configs["flat/recommended"]];
