@@ -81,6 +81,37 @@ const nodes = [
 ];
 ```
 
+### With Zoom Badge
+
+```typescript
+const nodes = [
+  {
+    id: '1',
+    type: 'treeNode',
+    position: { x: 0, y: 0 },
+    data: {
+      label: 'Algebra',
+      canZoom: true, // Shows "Zoom in" badge
+      onClick: () => {
+        console.log('Navigate to detailed view');
+      },
+    },
+  },
+];
+```
+
+The `ZoomBadge` component is also exported separately if you need to use it in custom components:
+
+```typescript
+import { ZoomBadge } from '@lumina-study/graph';
+
+// Use in your custom component
+<div>
+  <span>My Custom Node</span>
+  <ZoomBadge />
+</div>
+```
+
 ## API
 
 ### TreeNodeData
@@ -130,6 +161,7 @@ type Direction = 'ltr' | 'rtl' | 'ttb';
 - `TreeNodeHeader` - Node header with label and controls
 - `TreeNodeSubmodules` - Submodules display component
 - `CollapseButton` - Collapse/expand button
+- `ZoomBadge` - Zoom indicator badge (shown when `canZoom: true`)
 
 ## Exported Utilities
 

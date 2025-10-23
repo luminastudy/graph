@@ -4,7 +4,7 @@
  */
 
 // Components
-export { TreeNode, TreeNodeHandles, TreeNodeHeader, TreeNodeSubmodules, CollapseButton } from './components';
+export { TreeNode, TreeNodeHandles, TreeNodeHeader, TreeNodeSubmodules, CollapseButton, ZoomBadge } from './components';
 
 // Types
 export type { Direction, BlockStyleType, TreeNodeData } from './types';

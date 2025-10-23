@@ -1,1 +1,1 @@
-export { TreeNode, TreeNodeHandles, TreeNodeHeader, TreeNodeSubmodules, CollapseButton } from './TreeNode';
+export { TreeNode, TreeNodeHandles, TreeNodeHeader, TreeNodeSubmodules, CollapseButton, ZoomBadge } from './TreeNode';

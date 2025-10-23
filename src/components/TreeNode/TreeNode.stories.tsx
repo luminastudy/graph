@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ReactFlow, Background, Controls } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { TreeNode } from './TreeNode';
+import { ZoomBadge } from './ZoomBadge';
 import type { TreeNodeData } from '../../types';
 
 const meta = {
@@ -126,7 +127,7 @@ export const WithSearchHighlight: Story = {
   ),
 };
 
-export const CanZoom: Story = {
+export const WithZoomBadge: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
@@ -136,6 +137,18 @@ export const CanZoom: Story = {
         direction: 'ttb',
       }}
     />
+  ),
+};
+
+export const ZoomBadgeOnly: Story = {
+  render: () => (
+    <div style={{ padding: '2rem', display: 'flex', gap: '1rem', flexDirection: 'column', alignItems: 'flex-start' }}>
+      <h3 style={{ margin: 0 }}>Standalone ZoomBadge Component:</h3>
+      <ZoomBadge />
+      <p style={{ color: '#666', marginTop: '1rem' }}>
+        This badge can be imported and used independently in custom components
+      </p>
+    </div>
   ),
 };
 
@@ -196,6 +209,76 @@ export const Interactive: Story = {
         onToggleCollapse: (nodeId, collapsed) => {
           console.log(`Node ${nodeId} ${collapsed ? 'collapsed' : 'expanded'}`);
         },
+        direction: 'ttb',
+      }}
+    />
+  ),
+};
+
+export const AllProgressStates: Story = {
+  render: () => {
+    const nodes = [
+      {
+        id: '1',
+        type: 'custom',
+        position: { x: 0, y: 0 },
+        data: { label: 'Normal', style: 'normal' as const, direction: 'ttb' as const },
+      },
+      {
+        id: '2',
+        type: 'custom',
+        position: { x: 260, y: 0 },
+        data: { label: 'Quarter', style: 'quarterProgress' as const, direction: 'ttb' as const },
+      },
+      {
+        id: '3',
+        type: 'custom',
+        position: { x: 520, y: 0 },
+        data: { label: 'Half', style: 'halfProgress' as const, direction: 'ttb' as const },
+      },
+      {
+        id: '4',
+        type: 'custom',
+        position: { x: 0, y: 120 },
+        data: { label: 'Three Quarter', style: 'threeQuarterProgress' as const, direction: 'ttb' as const },
+      },
+      {
+        id: '5',
+        type: 'custom',
+        position: { x: 260, y: 120 },
+        data: { label: 'In Progress', style: 'inProgress' as const, direction: 'ttb' as const },
+      },
+      {
+        id: '6',
+        type: 'custom',
+        position: { x: 520, y: 120 },
+        data: { label: 'Complete', style: 'complete' as const, direction: 'ttb' as const },
+      },
+    ];
+
+    const nodeTypes = { custom: TreeNode };
+
+    return (
+      <div style={{ width: '800px', height: '600px' }}>
+        <ReactFlow nodes={nodes} nodeTypes={nodeTypes} fitView>
+          <Background />
+          <Controls />
+        </ReactFlow>
+      </div>
+    );
+  },
+};
+
+export const ComplexNode: Story = {
+  render: () => (
+    <TreeNodeWrapper
+      data={{
+        label: 'Advanced Course with All Features',
+        subModules: ['Introduction', 'Advanced Topics', 'Practical Applications', 'Final Project'],
+        canZoom: true,
+        style: 'halfProgress',
+        isSelected: true,
+        hasQuestions: true,
         direction: 'ttb',
       }}
     />
