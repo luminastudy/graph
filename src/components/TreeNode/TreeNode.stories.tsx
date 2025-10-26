@@ -3,7 +3,9 @@ import { ReactFlow, Background, Controls } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { TreeNode } from './TreeNode';
 import { ZoomBadge } from './ZoomBadge';
+import { Tree } from '../Tree/Tree';
 import type { TreeNodeData } from '../../types';
+import type { Node, Edge } from '@xyflow/react';
 
 const meta = {
   title: 'Components/TreeNode',
@@ -288,70 +290,43 @@ export const ComplexNode: Story = {
 // Multi-node graph stories
 
 export const SimpleTree: Story = {
-  render: () => {
-    const nodes = [
-      {
-        id: '1',
-        type: 'treeNode',
-        position: { x: 250, y: 0 },
-        data: {
-          label: 'Introduction to Computer Science',
-          style: 'complete' as const,
-          direction: 'ttb' as const,
+  render: () => (
+    <Tree
+      nodes={[
+        {
+          id: '1',
+          type: 'treeNode',
+          position: { x: 250, y: 0 },
+          data: { label: 'Introduction to Computer Science', style: 'complete' as const, direction: 'ttb' as const },
         },
-      },
-      {
-        id: '2',
-        type: 'treeNode',
-        position: { x: 100, y: 150 },
-        data: {
-          label: 'Programming Fundamentals',
-          style: 'inProgress' as const,
-          subModules: ['Variables', 'Functions', 'Loops'],
-          direction: 'ttb' as const,
+        {
+          id: '2',
+          type: 'treeNode',
+          position: { x: 100, y: 150 },
+          data: { label: 'Programming Fundamentals', style: 'inProgress' as const, subModules: ['Variables', 'Functions', 'Loops'], direction: 'ttb' as const },
         },
-      },
-      {
-        id: '3',
-        type: 'treeNode',
-        position: { x: 400, y: 150 },
-        data: {
-          label: 'Data Structures',
-          style: 'normal' as const,
-          subModules: ['Arrays', 'Lists', 'Trees', 'Graphs'],
-          direction: 'ttb' as const,
+        {
+          id: '3',
+          type: 'treeNode',
+          position: { x: 400, y: 150 },
+          data: { label: 'Data Structures', style: 'normal' as const, subModules: ['Arrays', 'Lists', 'Trees', 'Graphs'], direction: 'ttb' as const },
         },
-      },
-      {
-        id: '4',
-        type: 'treeNode',
-        position: { x: 250, y: 300 },
-        data: {
-          label: 'Algorithms',
-          style: 'normal' as const,
-          disabled: true,
-          direction: 'ttb' as const,
+        {
+          id: '4',
+          type: 'treeNode',
+          position: { x: 250, y: 300 },
+          data: { label: 'Algorithms', style: 'normal' as const, disabled: true, direction: 'ttb' as const },
         },
-      },
-    ];
-
-    const edges = [
-      { id: 'e1-2', source: '1', target: '2' },
-      { id: 'e1-3', source: '1', target: '3' },
-      { id: 'e2-4', source: '2', target: '4' },
-    ];
-
-    const nodeTypes = { treeNode: TreeNode };
-
-    return (
-      <div style={{ width: '800px', height: '600px' }}>
-        <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} fitView>
-          <Background />
-          <Controls />
-        </ReactFlow>
-      </div>
-    );
-  },
+      ] as Node<TreeNodeData>[]}
+      edges={[
+        { id: 'e1-2', source: '1', target: '2' },
+        { id: 'e1-3', source: '1', target: '3' },
+        { id: 'e2-4', source: '2', target: '4' },
+      ] as Edge[]}
+      width={800}
+      height={600}
+    />
+  ),
 };
 
 export const CourseHierarchy: Story = {
@@ -446,16 +421,7 @@ export const CourseHierarchy: Story = {
       { id: 'e-calculus-diff', source: 'calculus', target: 'differential' },
     ];
 
-    const nodeTypes = { treeNode: TreeNode };
-
-    return (
-      <div style={{ width: '1200px', height: '700px' }}>
-        <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} fitView>
-          <Background />
-          <Controls />
-        </ReactFlow>
-      </div>
-    );
+    return <Tree nodes={nodes as Node<TreeNodeData>[]} edges={edges as Edge[]} width={1200} height={700} />;
   },
 };
 
@@ -514,16 +480,7 @@ export const HorizontalTree: Story = {
       { id: 'e3-4', source: '3', target: '4' },
     ];
 
-    const nodeTypes = { treeNode: TreeNode };
-
-    return (
-      <div style={{ width: '1000px', height: '600px' }}>
-        <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} fitView>
-          <Background />
-          <Controls />
-        </ReactFlow>
-      </div>
-    );
+    return <Tree nodes={nodes as Node<TreeNodeData>[]} edges={edges as Edge[]} width={1000} height={600} />;
   },
 };
 
@@ -608,16 +565,7 @@ export const MixedStatesTree: Story = {
       { id: 'e3-6', source: '3', target: '6' },
     ];
 
-    const nodeTypes = { treeNode: TreeNode };
-
-    return (
-      <div style={{ width: '900px', height: '600px' }}>
-        <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} fitView>
-          <Background />
-          <Controls />
-        </ReactFlow>
-      </div>
-    );
+    return <Tree nodes={nodes as Node<TreeNodeData>[]} edges={edges as Edge[]} width={900} height={600} />;
   },
 };
 
@@ -771,16 +719,7 @@ export const LargeCurriculum: Story = {
       { id: 'e-algo-final', source: 'algorithms', target: 'final' },
     ];
 
-    const nodeTypes = { treeNode: TreeNode };
-
-    return (
-      <div style={{ width: '1400px', height: '800px' }}>
-        <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} fitView>
-          <Background />
-          <Controls />
-        </ReactFlow>
-      </div>
-    );
+    return <Tree nodes={nodes as Node<TreeNodeData>[]} edges={edges as Edge[]} width={1400} height={800} />;
   },
 };
 
@@ -842,16 +781,7 @@ export const RTLTree: Story = {
       { id: 'e3-4', source: '3', target: '4' },
     ];
 
-    const nodeTypes = { treeNode: TreeNode };
-
-    return (
-      <div style={{ width: '800px', height: '600px' }}>
-        <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} fitView>
-          <Background />
-          <Controls />
-        </ReactFlow>
-      </div>
-    );
+    return <Tree nodes={nodes as Node<TreeNodeData>[]} edges={edges as Edge[]} width={800} height={600} />;
   },
 };
 
@@ -915,15 +845,6 @@ export const SearchHighlightTree: Story = {
       { id: 'e1-4', source: '1', target: '4' },
     ];
 
-    const nodeTypes = { treeNode: TreeNode };
-
-    return (
-      <div style={{ width: '900px', height: '600px' }}>
-        <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} fitView>
-          <Background />
-          <Controls />
-        </ReactFlow>
-      </div>
-    );
+    return <Tree nodes={nodes as Node<TreeNodeData>[]} edges={edges as Edge[]} width={900} height={600} />;
   },
 };

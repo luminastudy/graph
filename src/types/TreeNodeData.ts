@@ -1,7 +1,7 @@
 import type { BlockStyleType } from './BlockStyleType';
 import type { Direction } from './Direction';
 
-export interface TreeNodeData {
+export interface TreeNodeData extends Record<string, unknown> {
   readonly label: string;
   readonly subModules?: readonly string[];
   readonly onClick?: () => void;
