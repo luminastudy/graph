@@ -319,7 +319,6 @@ export const SimpleTree: Story = {
         { id: 'e1-3', source: '1', target: '3' },
         { id: 'e2-4', source: '2', target: '4' },
       ] as Edge[]}
-      autoLayout={true}
       direction="ttb"
       width={800}
       height={600}
@@ -405,7 +404,7 @@ export const CourseHierarchy: Story = {
       { id: 'e-calculus-diff', source: 'calculus', target: 'differential' },
     ];
 
-    return <Tree nodes={nodes} edges={edges as Edge[]} autoLayout={true} direction="ttb" width={1200} height={700} />;
+    return <Tree nodes={nodes} edges={edges as Edge[]} direction="ttb" width={1200} height={700} />;
   },
 };
 
@@ -460,7 +459,6 @@ export const HorizontalTree: Story = {
       <Tree
         nodes={nodes}
         edges={edges as Edge[]}
-        autoLayout={true}
         layoutOptions={{ direction: 'horizontal' }}
         direction="ltr"
         width={1000}
@@ -539,7 +537,7 @@ export const MixedStatesTree: Story = {
       { id: 'e3-6', source: '3', target: '6' },
     ];
 
-    return <Tree nodes={nodes} edges={edges as Edge[]} autoLayout={true} direction="ttb" width={900} height={600} />;
+    return <Tree nodes={nodes} edges={edges as Edge[]} direction="ttb" width={900} height={600} />;
   },
 };
 
@@ -668,7 +666,6 @@ export const LargeCurriculum: Story = {
       <Tree
         nodes={nodes}
         edges={edges as Edge[]}
-        autoLayout={true}
         layoutOptions={{ horizontalSpacing: 350, verticalSpacing: 180 }}
         direction="ttb"
         width={1400}
@@ -728,7 +725,7 @@ export const RTLTree: Story = {
       { id: 'e3-4', source: '3', target: '4' },
     ];
 
-    return <Tree nodes={nodes} edges={edges as Edge[]} autoLayout={true} direction="rtl" width={800} height={600} />;
+    return <Tree nodes={nodes} edges={edges as Edge[]} direction="rtl" width={800} height={600} />;
   },
 };
 
@@ -784,6 +781,6 @@ export const SearchHighlightTree: Story = {
       { id: 'e1-4', source: '1', target: '4' },
     ];
 
-    return <Tree nodes={nodes} edges={edges as Edge[]} autoLayout={true} direction="ttb" width={900} height={600} />;
+    return <Tree nodes={nodes} edges={edges as Edge[]} direction="ttb" width={900} height={600} />;
   },
 };

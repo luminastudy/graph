@@ -45,11 +45,6 @@ export interface TreeProps extends Partial<Omit<ReactFlowProps, 'nodes' | 'edges
    */
   nodeTypes?: ReactFlowProps['nodeTypes'];
   /**
-   * Enable auto-layout. When true, node positions are calculated automatically.
-   * @default false
-   */
-  autoLayout?: boolean;
-  /**
    * Layout options for auto-layout
    */
   layoutOptions?: LayoutOptions;
@@ -88,7 +83,6 @@ export function Tree({
   showControls = true,
   fitView = true,
   nodeTypes: customNodeTypes,
-  autoLayout: enableAutoLayout = false,
   layoutOptions,
   direction = 'ttb',
   ...reactFlowProps
@@ -99,13 +93,12 @@ export function Tree({
     ...customNodeTypes,
   };
 
-  // Apply auto-layout if enabled
-  let processedNodes = enableAutoLayout
-    ? autoLayout(nodes as Omit<Node<TreeNodeData>, 'position'>[], edges, layoutOptions)
-    : (nodes as Node<TreeNodeData>[]);
-
-  // Apply tree-level direction to all nodes (if not already set on individual nodes)
-  processedNodes = processedNodes.map(node => ({
+  // Apply auto-layout and tree-level direction
+  const processedNodes = autoLayout(
+    nodes as Omit<Node<TreeNodeData>, 'position'>[],
+    edges,
+    layoutOptions
+  ).map(node => ({
     ...node,
     data: {
       ...node.data,
