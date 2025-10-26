@@ -23,4 +23,7 @@ export {
   handleKeyDown,
   highlightText,
   getBlockIcon,
+  autoLayout,
+  createTreeFromHierarchy,
 } from './utils';
+export type { LayoutOptions, LayoutDirection } from './utils';

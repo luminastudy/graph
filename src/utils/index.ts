@@ -6,3 +6,5 @@ export { handleClick } from './handleClick';
 export { handleKeyDown } from './handleKeyDown';
 export { highlightText } from './highlightText';
 export { getBlockIcon } from './getBlockIcon';
+export { autoLayout, createTreeFromHierarchy } from './autoLayout';
+export type { LayoutOptions, LayoutDirection } from './autoLayout';

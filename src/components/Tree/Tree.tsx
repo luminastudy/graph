@@ -2,13 +2,15 @@ import { ReactFlow, Background, Controls } from '@xyflow/react';
 import type { Node, Edge, ReactFlowProps } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { TreeNode } from '../TreeNode/TreeNode';
-import type { TreeNodeData } from '../../types';
+import type { TreeNodeData, Direction } from '../../types';
+import { autoLayout, type LayoutOptions } from '../../utils/autoLayout';
 
 export interface TreeProps extends Partial<Omit<ReactFlowProps, 'nodes' | 'edges' | 'nodeTypes' | 'width' | 'height' | 'fitView'>> {
   /**
-   * Array of tree nodes to render
+   * Array of tree nodes to render.
+   * If using auto-layout, positions can be omitted or set to {x:0, y:0}
    */
-  nodes: Node<TreeNodeData>[];
+  nodes: Node<TreeNodeData>[] | Omit<Node<TreeNodeData>, 'position'>[];
   /**
    * Array of edges connecting the nodes
    */
@@ -42,6 +44,20 @@ export interface TreeProps extends Partial<Omit<ReactFlowProps, 'nodes' | 'edges
    * Custom node types (TreeNode is registered by default)
    */
   nodeTypes?: ReactFlowProps['nodeTypes'];
+  /**
+   * Enable auto-layout. When true, node positions are calculated automatically.
+   * @default false
+   */
+  autoLayout?: boolean;
+  /**
+   * Layout options for auto-layout
+   */
+  layoutOptions?: LayoutOptions;
+  /**
+   * Direction for all nodes in the tree (for handle positioning)
+   * @default 'ttb'
+   */
+  direction?: Direction;
 }
 
 /**
@@ -72,6 +88,9 @@ export function Tree({
   showControls = true,
   fitView = true,
   nodeTypes: customNodeTypes,
+  autoLayout: enableAutoLayout = false,
+  layoutOptions,
+  direction = 'ttb',
   ...reactFlowProps
 }: TreeProps) {
   // Default node types with TreeNode registered
@@ -79,6 +98,20 @@ export function Tree({
     treeNode: TreeNode,
     ...customNodeTypes,
   };
+
+  // Apply auto-layout if enabled
+  let processedNodes = enableAutoLayout
+    ? autoLayout(nodes as Omit<Node<TreeNodeData>, 'position'>[], edges, layoutOptions)
+    : (nodes as Node<TreeNodeData>[]);
+
+  // Apply tree-level direction to all nodes (if not already set on individual nodes)
+  processedNodes = processedNodes.map(node => ({
+    ...node,
+    data: {
+      ...node.data,
+      direction: node.data.direction || direction,
+    },
+  }));
 
   const containerStyle = {
     width: typeof width === 'number' ? `${width}px` : width,
@@ -88,7 +121,7 @@ export function Tree({
   return (
     <div style={containerStyle}>
       <ReactFlow
-        nodes={nodes}
+        nodes={processedNodes}
         edges={edges}
         nodeTypes={nodeTypes}
         fitView={fitView}
