@@ -296,33 +296,31 @@ export const SimpleTree: Story = {
         {
           id: '1',
           type: 'treeNode',
-          position: { x: 250, y: 0 },
-          data: { label: 'Introduction to Computer Science', style: 'complete' as const, direction: 'ttb' as const },
+          data: { label: 'Introduction to Computer Science', style: 'complete' as const },
         },
         {
           id: '2',
           type: 'treeNode',
-          position: { x: 100, y: 150 },
-          data: { label: 'Programming Fundamentals', style: 'inProgress' as const, subModules: ['Variables', 'Functions', 'Loops'], direction: 'ttb' as const },
+          data: { label: 'Programming Fundamentals', style: 'inProgress' as const, subModules: ['Variables', 'Functions', 'Loops'] },
         },
         {
           id: '3',
           type: 'treeNode',
-          position: { x: 400, y: 150 },
-          data: { label: 'Data Structures', style: 'normal' as const, subModules: ['Arrays', 'Lists', 'Trees', 'Graphs'], direction: 'ttb' as const },
+          data: { label: 'Data Structures', style: 'normal' as const, subModules: ['Arrays', 'Lists', 'Trees', 'Graphs'] },
         },
         {
           id: '4',
           type: 'treeNode',
-          position: { x: 250, y: 300 },
-          data: { label: 'Algorithms', style: 'normal' as const, disabled: true, direction: 'ttb' as const },
+          data: { label: 'Algorithms', style: 'normal' as const, disabled: true },
         },
-      ] as Node<TreeNodeData>[]}
+      ]}
       edges={[
         { id: 'e1-2', source: '1', target: '2' },
         { id: 'e1-3', source: '1', target: '3' },
         { id: 'e2-4', source: '2', target: '4' },
       ] as Edge[]}
+      autoLayout={true}
+      direction="ttb"
       width={800}
       height={600}
     />
@@ -335,79 +333,65 @@ export const CourseHierarchy: Story = {
       {
         id: 'root',
         type: 'treeNode',
-        position: { x: 400, y: 0 },
         data: {
           label: 'Mathematics Curriculum',
           style: 'halfProgress',
           canZoom: true,
           isSelected: true,
-          direction: 'ttb',
         },
       },
       {
         id: 'algebra',
         type: 'treeNode',
-        position: { x: 0, y: 150 },
         data: {
           label: 'Algebra',
           style: 'complete',
           subModules: ['Linear Equations', 'Quadratic Equations', 'Polynomials'],
-          direction: 'ttb',
         },
       },
       {
         id: 'geometry',
         type: 'treeNode',
-        position: { x: 300, y: 150 },
         data: {
           label: 'Geometry',
           style: 'threeQuarterProgress',
           subModules: ['Angles', 'Triangles', 'Circles'],
-          direction: 'ttb',
         },
       },
       {
         id: 'calculus',
         type: 'treeNode',
-        position: { x: 600, y: 150 },
         data: {
           label: 'Calculus',
           style: 'inProgress',
           subModules: ['Limits', 'Derivatives', 'Integrals'],
-          direction: 'ttb',
         },
       },
       {
         id: 'statistics',
         type: 'treeNode',
-        position: { x: 900, y: 150 },
         data: {
           label: 'Statistics',
           style: 'normal',
           subModules: ['Probability', 'Distributions', 'Hypothesis Testing'],
-          direction: 'ttb',
         },
       },
       {
         id: 'advanced-calc',
         type: 'treeNode',
-        position: { x: 600, y: 300 },
         data: {
           label: 'Advanced Calculus',
           style: 'quarterProgress',
           subModules: ['Multivariable', 'Vector Calculus'],
-          direction: 'ttb',
         },
       },
       {
         id: 'differential',
         type: 'treeNode',
-        position: { x: 900, y: 300 },
         data: {
           label: 'Differential Equations',
           style: 'normal',
           disabled: true,
-          direction: 'ttb',
         },
       },
     ];
@@ -421,7 +405,7 @@ export const CourseHierarchy: Story = {
       { id: 'e-calculus-diff', source: 'calculus', target: 'differential' },
     ];
 
-    return <Tree nodes={nodes as Node<TreeNodeData>[]} edges={edges as Edge[]} width={1200} height={700} />;
+    return <Tree nodes={nodes} edges={edges as Edge[]} autoLayout={true} direction="ttb" width={1200} height={700} />;
   },
 };
 
@@ -431,44 +415,36 @@ export const HorizontalTree: Story = {
       {
         id: '1',
         type: 'treeNode',
-        position: { x: 0, y: 200 },
         data: {
           label: 'Start',
           style: 'complete',
-          direction: 'ltr',
         },
       },
       {
         id: '2',
         type: 'treeNode',
-        position: { x: 300, y: 100 },
         data: {
           label: 'Beginner Level',
           style: 'complete',
           subModules: ['Basics', 'Practice'],
-          direction: 'ltr',
         },
       },
       {
         id: '3',
         type: 'treeNode',
-        position: { x: 300, y: 300 },
         data: {
           label: 'Intermediate Level',
           style: 'inProgress',
           subModules: ['Theory', 'Applications'],
-          direction: 'ltr',
         },
       },
       {
         id: '4',
         type: 'treeNode',
-        position: { x: 600, y: 200 },
         data: {
           label: 'Advanced Level',
           style: 'normal',
           subModules: ['Research', 'Projects'],
-          direction: 'ltr',
         },
       },
     ];
@@ -480,7 +456,17 @@ export const HorizontalTree: Story = {
       { id: 'e3-4', source: '3', target: '4' },
     ];
 
-    return <Tree nodes={nodes as Node<TreeNodeData>[]} edges={edges as Edge[]} width={1000} height={600} />;
+    return (
+      <Tree
+        nodes={nodes}
+        edges={edges as Edge[]}
+        autoLayout={true}
+        layoutOptions={{ direction: 'horizontal' }}
+        direction="ltr"
+        width={1000}
+        height={600}
+      />
+    );
   },
 };
 
@@ -490,69 +476,57 @@ export const MixedStatesTree: Story = {
       {
         id: '1',
         type: 'treeNode',
-        position: { x: 300, y: 0 },
         data: {
           label: 'Course Overview',
           style: 'halfProgress',
           isSelected: true,
-          direction: 'ttb',
         },
       },
       {
         id: '2',
         type: 'treeNode',
-        position: { x: 0, y: 150 },
         data: {
           label: 'Module 1: Completed',
           style: 'complete',
           subModules: ['Lesson 1', 'Lesson 2', 'Lesson 3'],
-          direction: 'ttb',
         },
       },
       {
         id: '3',
         type: 'treeNode',
-        position: { x: 300, y: 150 },
         data: {
           label: 'Module 2: In Progress',
           style: 'threeQuarterProgress',
           subModules: ['Lesson 1', 'Lesson 2'],
           canZoom: true,
           isHighlighted: true,
-          direction: 'ttb',
         },
       },
       {
         id: '4',
         type: 'treeNode',
-        position: { x: 600, y: 150 },
         data: {
           label: 'Module 3: Not Started',
           style: 'normal',
           subModules: ['Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4'],
-          direction: 'ttb',
         },
       },
       {
         id: '5',
         type: 'treeNode',
-        position: { x: 150, y: 300 },
         data: {
           label: 'Quiz 1',
           style: 'complete',
           hasQuestions: true,
-          direction: 'ttb',
         },
       },
       {
         id: '6',
         type: 'treeNode',
-        position: { x: 450, y: 300 },
         data: {
           label: 'Quiz 2',
           style: 'quarterProgress',
           hasQuestions: true,
-          direction: 'ttb',
         },
       },
     ];
@@ -565,7 +539,7 @@ export const MixedStatesTree: Story = {
       { id: 'e3-6', source: '3', target: '6' },
     ];
 
-    return <Tree nodes={nodes as Node<TreeNodeData>[]} edges={edges as Edge[]} width={900} height={600} />;
+    return <Tree nodes={nodes} edges={edges as Edge[]} autoLayout={true} direction="ttb" width={900} height={600} />;
   },
 };
 
@@ -575,151 +549,132 @@ export const LargeCurriculum: Story = {
       {
         id: 'cs-101',
         type: 'treeNode',
-        position: { x: 600, y: 0 },
         data: {
           label: 'Computer Science 101',
           style: 'halfProgress',
           canZoom: true,
-          direction: 'ttb',
         },
       },
-      // First level
       {
         id: 'intro',
         type: 'treeNode',
-        position: { x: 100, y: 150 },
         data: {
           label: 'Introduction',
           style: 'complete',
           subModules: ['Overview', 'Setup'],
-          direction: 'ttb',
         },
       },
       {
         id: 'programming',
         type: 'treeNode',
-        position: { x: 400, y: 150 },
         data: {
           label: 'Programming Basics',
           style: 'complete',
           subModules: ['Syntax', 'Variables', 'Control Flow'],
-          direction: 'ttb',
         },
       },
       {
         id: 'data-struct',
         type: 'treeNode',
-        position: { x: 700, y: 150 },
         data: {
           label: 'Data Structures',
           style: 'inProgress',
           subModules: ['Arrays', 'Linked Lists', 'Stacks', 'Queues'],
           isSelected: true,
-          direction: 'ttb',
         },
       },
       {
         id: 'algorithms',
         type: 'treeNode',
-        position: { x: 1000, y: 150 },
         data: {
           label: 'Algorithms',
           style: 'quarterProgress',
           subModules: ['Sorting', 'Searching', 'Recursion'],
-          direction: 'ttb',
         },
       },
       {
         id: 'final',
         type: 'treeNode',
-        position: { x: 1300, y: 150 },
         data: {
           label: 'Final Project',
           style: 'normal',
           disabled: true,
-          direction: 'ttb',
         },
       },
-      // Second level
       {
         id: 'arrays',
         type: 'treeNode',
-        position: { x: 550, y: 300 },
         data: {
           label: 'Arrays Deep Dive',
           style: 'complete',
           subModules: ['1D Arrays', '2D Arrays', 'Dynamic Arrays'],
-          direction: 'ttb',
         },
       },
       {
         id: 'trees',
         type: 'treeNode',
-        position: { x: 850, y: 300 },
         data: {
           label: 'Trees & Graphs',
           style: 'halfProgress',
           subModules: ['Binary Trees', 'BST', 'Heaps', 'Graphs'],
-          direction: 'ttb',
         },
       },
       {
         id: 'sorting',
         type: 'treeNode',
-        position: { x: 1000, y: 300 },
         data: {
           label: 'Sorting Algorithms',
           style: 'normal',
           subModules: ['Bubble', 'Merge', 'Quick'],
-          direction: 'ttb',
         },
       },
-      // Third level
       {
         id: 'bst',
         type: 'treeNode',
-        position: { x: 750, y: 450 },
         data: {
           label: 'Binary Search Trees',
           style: 'threeQuarterProgress',
           hasQuestions: true,
-          direction: 'ttb',
         },
       },
       {
         id: 'graph-algos',
         type: 'treeNode',
-        position: { x: 950, y: 450 },
         data: {
           label: 'Graph Algorithms',
           style: 'quarterProgress',
           subModules: ['DFS', 'BFS', 'Dijkstra'],
-          direction: 'ttb',
         },
       },
     ];
 
     const edges = [
-      // Root connections
       { id: 'e-root-intro', source: 'cs-101', target: 'intro' },
       { id: 'e-root-prog', source: 'cs-101', target: 'programming' },
       { id: 'e-root-ds', source: 'cs-101', target: 'data-struct' },
       { id: 'e-root-algo', source: 'cs-101', target: 'algorithms' },
       { id: 'e-root-final', source: 'cs-101', target: 'final' },
-      // Second level
       { id: 'e-ds-arrays', source: 'data-struct', target: 'arrays' },
       { id: 'e-ds-trees', source: 'data-struct', target: 'trees' },
       { id: 'e-algo-sort', source: 'algorithms', target: 'sorting' },
-      // Third level
       { id: 'e-trees-bst', source: 'trees', target: 'bst' },
       { id: 'e-trees-graph', source: 'trees', target: 'graph-algos' },
-      // Cross connections
       { id: 'e-prog-ds', source: 'programming', target: 'data-struct' },
       { id: 'e-ds-algo', source: 'data-struct', target: 'algorithms' },
       { id: 'e-algo-final', source: 'algorithms', target: 'final' },
     ];
 
-    return <Tree nodes={nodes as Node<TreeNodeData>[]} edges={edges as Edge[]} width={1400} height={800} />;
+    return (
+      <Tree
+        nodes={nodes}
+        edges={edges as Edge[]}
+        autoLayout={true}
+        layoutOptions={{ horizontalSpacing: 350, verticalSpacing: 180 }}
+        direction="ttb"
+        width={1400}
+        height={800}
+      />
+    );
   },
 };
 
@@ -729,47 +684,39 @@ export const RTLTree: Story = {
       {
         id: '1',
         type: 'treeNode',
-        position: { x: 300, y: 0 },
         data: {
           label: 'מדעי המחשב',
           language: 'he',
           style: 'complete',
-          direction: 'rtl',
         },
       },
       {
         id: '2',
         type: 'treeNode',
-        position: { x: 100, y: 150 },
         data: {
           label: 'תכנות',
           language: 'he',
           style: 'complete',
           subModules: ['משתנים', 'פונקציות', 'לולאות'],
-          direction: 'rtl',
         },
       },
       {
         id: '3',
         type: 'treeNode',
-        position: { x: 500, y: 150 },
         data: {
           label: 'מבני נתונים',
           language: 'he',
           style: 'inProgress',
           subModules: ['מערכים', 'רשימות', 'עצים'],
-          direction: 'rtl',
         },
       },
       {
         id: '4',
         type: 'treeNode',
-        position: { x: 300, y: 300 },
         data: {
           label: 'אלגוריתמים',
           language: 'he',
           style: 'normal',
-          direction: 'rtl',
         },
       },
     ];
@@ -781,7 +728,7 @@ export const RTLTree: Story = {
       { id: 'e3-4', source: '3', target: '4' },
     ];
 
-    return <Tree nodes={nodes as Node<TreeNodeData>[]} edges={edges as Edge[]} width={800} height={600} />;
+    return <Tree nodes={nodes} edges={edges as Edge[]} autoLayout={true} direction="rtl" width={800} height={600} />;
   },
 };
 
@@ -792,49 +739,41 @@ export const SearchHighlightTree: Story = {
       {
         id: '1',
         type: 'treeNode',
-        position: { x: 250, y: 0 },
         data: {
           label: 'Database Systems',
           searchTerm,
           style: 'complete',
-          direction: 'ttb',
         },
       },
       {
         id: '2',
         type: 'treeNode',
-        position: { x: 0, y: 150 },
         data: {
           label: 'Data Modeling',
           searchTerm,
           style: 'complete',
           subModules: ['ER Diagrams', 'Data Types', 'Normalization'],
           isHighlighted: true,
-          direction: 'ttb',
         },
       },
       {
         id: '3',
         type: 'treeNode',
-        position: { x: 300, y: 150 },
         data: {
           label: 'SQL Fundamentals',
           searchTerm,
           style: 'inProgress',
           subModules: ['SELECT', 'JOIN', 'Data Aggregation'],
-          direction: 'ttb',
         },
       },
       {
         id: '4',
         type: 'treeNode',
-        position: { x: 600, y: 150 },
         data: {
           label: 'NoSQL Databases',
           searchTerm,
           style: 'normal',
           subModules: ['MongoDB', 'Data Structures'],
-          direction: 'ttb',
         },
       },
     ];
@@ -845,6 +784,6 @@ export const SearchHighlightTree: Story = {
       { id: 'e1-4', source: '1', target: '4' },
     ];
 
-    return <Tree nodes={nodes as Node<TreeNodeData>[]} edges={edges as Edge[]} width={900} height={600} />;
+    return <Tree nodes={nodes} edges={edges as Edge[]} autoLayout={true} direction="ttb" width={900} height={600} />;
   },
 };
