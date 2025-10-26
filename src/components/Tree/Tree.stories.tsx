@@ -23,7 +23,8 @@ export const SimpleTree: Story = {
         id: '1',
         type: 'treeNode',
         data: {
-          label: 'Introduction to Computer Science',
+          id: '1',
+          text: 'Introduction to Computer Science',
           style: 'complete' as const,
         },
       },
@@ -31,7 +32,8 @@ export const SimpleTree: Story = {
         id: '2',
         type: 'treeNode',
         data: {
-          label: 'Programming Fundamentals',
+          id: '2',
+          text: 'Programming Fundamentals',
           style: 'inProgress' as const,
           subModules: ['Variables', 'Functions', 'Loops'],
         },
@@ -40,7 +42,8 @@ export const SimpleTree: Story = {
         id: '3',
         type: 'treeNode',
         data: {
-          label: 'Data Structures',
+          id: '3',
+          text: 'Data Structures',
           style: 'normal' as const,
           subModules: ['Arrays', 'Lists', 'Trees', 'Graphs'],
         },
@@ -49,7 +52,8 @@ export const SimpleTree: Story = {
         id: '4',
         type: 'treeNode',
         data: {
-          label: 'Algorithms',
+          id: '4',
+          text: 'Algorithms',
           style: 'normal' as const,
           disabled: true,
         },
@@ -73,7 +77,8 @@ export const CourseHierarchy: Story = {
         id: 'root',
         type: 'treeNode',
         data: {
-          label: 'Mathematics Curriculum',
+          id: 'root',
+          text: 'Mathematics Curriculum',
           style: 'halfProgress' as const,
           canZoom: true,
           isSelected: true,
@@ -83,7 +88,8 @@ export const CourseHierarchy: Story = {
         id: 'algebra',
         type: 'treeNode',
         data: {
-          label: 'Algebra',
+          id: 'algebra',
+          text: 'Algebra',
           style: 'complete' as const,
           subModules: ['Linear Equations', 'Quadratic Equations', 'Polynomials'],
           },
@@ -92,7 +98,8 @@ export const CourseHierarchy: Story = {
         id: 'geometry',
         type: 'treeNode',
         data: {
-          label: 'Geometry',
+          id: 'geometry',
+          text: 'Geometry',
           style: 'threeQuarterProgress' as const,
           subModules: ['Angles', 'Triangles', 'Circles'],
           },
@@ -101,7 +108,8 @@ export const CourseHierarchy: Story = {
         id: 'calculus',
         type: 'treeNode',
         data: {
-          label: 'Calculus',
+          id: 'calculus',
+          text: 'Calculus',
           style: 'inProgress' as const,
           subModules: ['Limits', 'Derivatives', 'Integrals'],
           },
@@ -110,7 +118,8 @@ export const CourseHierarchy: Story = {
         id: 'statistics',
         type: 'treeNode',
         data: {
-          label: 'Statistics',
+          id: 'statistics',
+          text: 'Statistics',
           style: 'normal' as const,
           subModules: ['Probability', 'Distributions', 'Hypothesis Testing'],
           },
@@ -119,7 +128,8 @@ export const CourseHierarchy: Story = {
         id: 'advanced-calc',
         type: 'treeNode',
         data: {
-          label: 'Advanced Calculus',
+          id: 'advanced-calc',
+          text: 'Advanced Calculus',
           style: 'quarterProgress' as const,
           subModules: ['Multivariable', 'Vector Calculus'],
           },
@@ -128,7 +138,8 @@ export const CourseHierarchy: Story = {
         id: 'differential',
         type: 'treeNode',
         data: {
-          label: 'Differential Equations',
+          id: 'differential',
+          text: 'Differential Equations',
           style: 'normal' as const,
           disabled: true,
           },
@@ -155,7 +166,8 @@ export const HorizontalLayout: Story = {
         id: '1',
         type: 'treeNode',
         data: {
-          label: 'Start',
+          id: '1',
+          text: 'Start',
           style: 'complete' as const,
           },
       },
@@ -163,7 +175,8 @@ export const HorizontalLayout: Story = {
         id: '2',
         type: 'treeNode',
         data: {
-          label: 'Beginner Level',
+          id: '2',
+          text: 'Beginner Level',
           style: 'complete' as const,
           subModules: ['Basics', 'Practice'],
           },
@@ -172,7 +185,8 @@ export const HorizontalLayout: Story = {
         id: '3',
         type: 'treeNode',
         data: {
-          label: 'Intermediate Level',
+          id: '3',
+          text: 'Intermediate Level',
           style: 'inProgress' as const,
           subModules: ['Theory', 'Applications'],
           },
@@ -181,7 +195,8 @@ export const HorizontalLayout: Story = {
         id: '4',
         type: 'treeNode',
         data: {
-          label: 'Advanced Level',
+          id: '4',
+          text: 'Advanced Level',
           style: 'normal' as const,
           subModules: ['Research', 'Projects'],
           },
@@ -209,7 +224,8 @@ export const RTLTree: Story = {
         id: '1',
         type: 'treeNode',
         data: {
-          label: 'מדעי המחשב',
+          id: '1',
+          text: 'מדעי המחשב',
           language: 'he' as const,
           style: 'complete' as const,
           },
@@ -218,7 +234,8 @@ export const RTLTree: Story = {
         id: '2',
         type: 'treeNode',
         data: {
-          label: 'תכנות',
+          id: '2',
+          text: 'תכנות',
           language: 'he' as const,
           style: 'complete' as const,
           subModules: ['משתנים', 'פונקציות', 'לולאות'],
@@ -228,7 +245,8 @@ export const RTLTree: Story = {
         id: '3',
         type: 'treeNode',
         data: {
-          label: 'מבני נתונים',
+          id: '3',
+          text: 'מבני נתונים',
           language: 'he' as const,
           style: 'inProgress' as const,
           subModules: ['מערכים', 'רשימות', 'עצים'],
@@ -238,7 +256,8 @@ export const RTLTree: Story = {
         id: '4',
         type: 'treeNode',
         data: {
-          label: 'אלגוריתמים',
+          id: '4',
+          text: 'אלגוריתמים',
           language: 'he' as const,
           style: 'normal' as const,
           },
@@ -263,7 +282,8 @@ export const LargeCurriculum: Story = {
         id: 'cs-101',
         type: 'treeNode',
         data: {
-          label: 'Computer Science 101',
+          id: 'cs-101',
+          text: 'Computer Science 101',
           style: 'halfProgress' as const,
           canZoom: true,
           },
@@ -272,7 +292,8 @@ export const LargeCurriculum: Story = {
         id: 'intro',
         type: 'treeNode',
         data: {
-          label: 'Introduction',
+          id: 'intro',
+          text: 'Introduction',
           style: 'complete' as const,
           subModules: ['Overview', 'Setup'],
           },
@@ -281,7 +302,8 @@ export const LargeCurriculum: Story = {
         id: 'programming',
         type: 'treeNode',
         data: {
-          label: 'Programming Basics',
+          id: 'programming',
+          text: 'Programming Basics',
           style: 'complete' as const,
           subModules: ['Syntax', 'Variables', 'Control Flow'],
           },
@@ -290,7 +312,8 @@ export const LargeCurriculum: Story = {
         id: 'data-struct',
         type: 'treeNode',
         data: {
-          label: 'Data Structures',
+          id: 'data-struct',
+          text: 'Data Structures',
           style: 'inProgress' as const,
           subModules: ['Arrays', 'Linked Lists', 'Stacks', 'Queues'],
           isSelected: true,
@@ -300,7 +323,8 @@ export const LargeCurriculum: Story = {
         id: 'algorithms',
         type: 'treeNode',
         data: {
-          label: 'Algorithms',
+          id: 'algorithms',
+          text: 'Algorithms',
           style: 'quarterProgress' as const,
           subModules: ['Sorting', 'Searching', 'Recursion'],
           },
@@ -309,7 +333,8 @@ export const LargeCurriculum: Story = {
         id: 'final',
         type: 'treeNode',
         data: {
-          label: 'Final Project',
+          id: 'final',
+          text: 'Final Project',
           style: 'normal' as const,
           disabled: true,
           },
@@ -318,7 +343,8 @@ export const LargeCurriculum: Story = {
         id: 'arrays',
         type: 'treeNode',
         data: {
-          label: 'Arrays Deep Dive',
+          id: 'arrays',
+          text: 'Arrays Deep Dive',
           style: 'complete' as const,
           subModules: ['1D Arrays', '2D Arrays', 'Dynamic Arrays'],
           },
@@ -327,7 +353,8 @@ export const LargeCurriculum: Story = {
         id: 'trees',
         type: 'treeNode',
         data: {
-          label: 'Trees & Graphs',
+          id: 'trees',
+          text: 'Trees & Graphs',
           style: 'halfProgress' as const,
           subModules: ['Binary Trees', 'BST', 'Heaps', 'Graphs'],
           },
@@ -336,7 +363,8 @@ export const LargeCurriculum: Story = {
         id: 'sorting',
         type: 'treeNode',
         data: {
-          label: 'Sorting Algorithms',
+          id: 'sorting',
+          text: 'Sorting Algorithms',
           style: 'normal' as const,
           subModules: ['Bubble', 'Merge', 'Quick'],
           },
@@ -345,7 +373,8 @@ export const LargeCurriculum: Story = {
         id: 'bst',
         type: 'treeNode',
         data: {
-          label: 'Binary Search Trees',
+          id: 'bst',
+          text: 'Binary Search Trees',
           style: 'threeQuarterProgress' as const,
           hasQuestions: true,
           },
@@ -354,7 +383,8 @@ export const LargeCurriculum: Story = {
         id: 'graph-algos',
         type: 'treeNode',
         data: {
-          label: 'Graph Algorithms',
+          id: 'graph-algos',
+          text: 'Graph Algorithms',
           style: 'quarterProgress' as const,
           subModules: ['DFS', 'BFS', 'Dijkstra'],
           },
@@ -392,7 +422,8 @@ export const WithoutControls: Story = {
         id: '1',
         type: 'treeNode',
         data: {
-          label: 'Simple Node',
+          id: '1',
+          text: 'Simple Node',
           },
       },
     ],
@@ -411,7 +442,8 @@ export const CustomSpacing: Story = {
         id: '1',
         type: 'treeNode',
         data: {
-          label: 'Root',
+          id: '1',
+          text: 'Root',
           style: 'complete' as const,
           },
       },
@@ -419,7 +451,8 @@ export const CustomSpacing: Story = {
         id: '2',
         type: 'treeNode',
         data: {
-          label: 'Child 1',
+          id: '2',
+          text: 'Child 1',
           style: 'inProgress' as const,
           },
       },
@@ -427,7 +460,8 @@ export const CustomSpacing: Story = {
         id: '3',
         type: 'treeNode',
         data: {
-          label: 'Child 2',
+          id: '3',
+          text: 'Child 2',
           style: 'normal' as const,
           },
       },

@@ -69,7 +69,7 @@ function TreeNodeContainer(props: TreeNodeProps) {
         setIsCollapsed={setIsCollapsed}
         onToggleCollapse={handleToggleCollapse}
         nodeId={props.id}
-        label={data.label}
+        label={data.text}
         searchTerm={data.searchTerm}
         iconPath={iconPath}
         canZoom={data.canZoom}

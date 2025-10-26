@@ -48,7 +48,8 @@ export const Default: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'Introduction to Mathematics',
+        id: '1',
+        text: 'Introduction to Mathematics',
         direction: 'ttb',
       }}
     />
@@ -59,7 +60,8 @@ export const WithSubModules: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'Advanced Calculus',
+        id: '1',
+        text: 'Advanced Calculus',
         subModules: ['Derivatives', 'Integrals', 'Series', 'Differential Equations'],
         direction: 'ttb',
       }}
@@ -71,7 +73,8 @@ export const WithSubModulesCollapsed: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'Advanced Calculus',
+        id: '1',
+        text: 'Advanced Calculus',
         subModules: ['Derivatives', 'Integrals', 'Series', 'Differential Equations'],
         isCollapsed: true,
         direction: 'ttb',
@@ -84,7 +87,8 @@ export const Selected: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'Linear Algebra',
+        id: '1',
+        text: 'Linear Algebra',
         isSelected: true,
         direction: 'ttb',
       }}
@@ -96,7 +100,8 @@ export const Highlighted: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'Quantum Physics',
+        id: '1',
+        text: 'Quantum Physics',
         isHighlighted: true,
         direction: 'ttb',
       }}
@@ -108,7 +113,8 @@ export const Disabled: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'Unpublished Course',
+        id: '1',
+        text: 'Unpublished Course',
         disabled: true,
         direction: 'ttb',
       }}
@@ -120,7 +126,8 @@ export const WithSearchHighlight: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'Introduction to Programming',
+        id: '1',
+        text: 'Introduction to Programming',
         searchTerm: 'Programming',
         subModules: ['Variables', 'Functions', 'Programming Basics', 'Data Structures'],
         direction: 'ttb',
@@ -133,7 +140,8 @@ export const WithZoomBadge: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'Computer Science Fundamentals',
+        id: '1',
+        text: 'Computer Science Fundamentals',
         canZoom: true,
         subModules: ['Algorithms', 'Data Structures', 'Complexity'],
         direction: 'ttb',
@@ -158,7 +166,8 @@ export const RightToLeft: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'מבוא למתמטיקה',
+        id: '1',
+        text: 'מבוא למתמטיקה',
         language: 'he',
         direction: 'rtl',
       }}
@@ -170,7 +179,8 @@ export const LeftToRight: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'Mathematics Course',
+        id: '1',
+        text: 'Mathematics Course',
         direction: 'ltr',
       }}
     />
@@ -181,7 +191,8 @@ export const Complete: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'Completed Module',
+        id: '1',
+        text: 'Completed Module',
         style: 'complete',
         direction: 'ttb',
       }}
@@ -193,7 +204,8 @@ export const InProgress: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'In Progress Module',
+        id: '1',
+        text: 'In Progress Module',
         style: 'inProgress',
         direction: 'ttb',
       }}
@@ -205,7 +217,8 @@ export const Interactive: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'Interactive Node',
+        id: '1',
+        text: 'Interactive Node',
         subModules: ['Module 1', 'Module 2', 'Module 3'],
         onClick: () => alert('Node clicked!'),
         onToggleCollapse: (nodeId, collapsed) => {
@@ -224,37 +237,37 @@ export const AllProgressStates: Story = {
         id: '1',
         type: 'custom',
         position: { x: 0, y: 0 },
-        data: { label: 'Normal', style: 'normal' as const, direction: 'ttb' as const },
+        data: { id: '1', text: 'Normal', style: 'normal' as const, direction: 'ttb' as const },
       },
       {
         id: '2',
         type: 'custom',
         position: { x: 260, y: 0 },
-        data: { label: 'Quarter', style: 'quarterProgress' as const, direction: 'ttb' as const },
+        data: { id: '1', text: 'Quarter', style: 'quarterProgress' as const, direction: 'ttb' as const },
       },
       {
         id: '3',
         type: 'custom',
         position: { x: 520, y: 0 },
-        data: { label: 'Half', style: 'halfProgress' as const, direction: 'ttb' as const },
+        data: { id: '1', text: 'Half', style: 'halfProgress' as const, direction: 'ttb' as const },
       },
       {
         id: '4',
         type: 'custom',
         position: { x: 0, y: 120 },
-        data: { label: 'Three Quarter', style: 'threeQuarterProgress' as const, direction: 'ttb' as const },
+        data: { id: '1', text: 'Three Quarter', style: 'threeQuarterProgress' as const, direction: 'ttb' as const },
       },
       {
         id: '5',
         type: 'custom',
         position: { x: 260, y: 120 },
-        data: { label: 'In Progress', style: 'inProgress' as const, direction: 'ttb' as const },
+        data: { id: '1', text: 'In Progress', style: 'inProgress' as const, direction: 'ttb' as const },
       },
       {
         id: '6',
         type: 'custom',
         position: { x: 520, y: 120 },
-        data: { label: 'Complete', style: 'complete' as const, direction: 'ttb' as const },
+        data: { id: '1', text: 'Complete', style: 'complete' as const, direction: 'ttb' as const },
       },
     ];
 
@@ -275,7 +288,8 @@ export const ComplexNode: Story = {
   render: () => (
     <TreeNodeWrapper
       data={{
-        label: 'Advanced Course with All Features',
+        id: '1',
+        text: 'Advanced Course with All Features',
         subModules: ['Introduction', 'Advanced Topics', 'Practical Applications', 'Final Project'],
         canZoom: true,
         style: 'halfProgress',
@@ -295,23 +309,27 @@ export const SimpleTree: Story = {
       nodes={[
         {
           id: '1',
-          type: 'treeNode',
-          data: { label: 'Introduction to Computer Science', style: 'complete' as const },
+        type: 'treeNode',
+        data: {
+          id: '1', text: 'Introduction to Computer Science', style: 'complete' as const },
         },
         {
           id: '2',
-          type: 'treeNode',
-          data: { label: 'Programming Fundamentals', style: 'inProgress' as const, subModules: ['Variables', 'Functions', 'Loops'] },
+        type: 'treeNode',
+        data: {
+          id: '2', text: 'Programming Fundamentals', style: 'inProgress' as const, subModules: ['Variables', 'Functions', 'Loops'] },
         },
         {
           id: '3',
-          type: 'treeNode',
-          data: { label: 'Data Structures', style: 'normal' as const, subModules: ['Arrays', 'Lists', 'Trees', 'Graphs'] },
+        type: 'treeNode',
+        data: {
+          id: '3', text: 'Data Structures', style: 'normal' as const, subModules: ['Arrays', 'Lists', 'Trees', 'Graphs'] },
         },
         {
           id: '4',
-          type: 'treeNode',
-          data: { label: 'Algorithms', style: 'normal' as const, disabled: true },
+        type: 'treeNode',
+        data: {
+          id: '4', text: 'Algorithms', style: 'normal' as const, disabled: true },
         },
       ]}
       edges={[
@@ -333,7 +351,8 @@ export const CourseHierarchy: Story = {
         id: 'root',
         type: 'treeNode',
         data: {
-          label: 'Mathematics Curriculum',
+          id: 'root',
+          text: 'Mathematics Curriculum',
           style: 'halfProgress',
           canZoom: true,
           isSelected: true,
@@ -343,7 +362,8 @@ export const CourseHierarchy: Story = {
         id: 'algebra',
         type: 'treeNode',
         data: {
-          label: 'Algebra',
+          id: 'algebra',
+          text: 'Algebra',
           style: 'complete',
           subModules: ['Linear Equations', 'Quadratic Equations', 'Polynomials'],
         },
@@ -352,7 +372,8 @@ export const CourseHierarchy: Story = {
         id: 'geometry',
         type: 'treeNode',
         data: {
-          label: 'Geometry',
+          id: 'geometry',
+          text: 'Geometry',
           style: 'threeQuarterProgress',
           subModules: ['Angles', 'Triangles', 'Circles'],
         },
@@ -361,7 +382,8 @@ export const CourseHierarchy: Story = {
         id: 'calculus',
         type: 'treeNode',
         data: {
-          label: 'Calculus',
+          id: 'calculus',
+          text: 'Calculus',
           style: 'inProgress',
           subModules: ['Limits', 'Derivatives', 'Integrals'],
         },
@@ -370,7 +392,8 @@ export const CourseHierarchy: Story = {
         id: 'statistics',
         type: 'treeNode',
         data: {
-          label: 'Statistics',
+          id: 'statistics',
+          text: 'Statistics',
           style: 'normal',
           subModules: ['Probability', 'Distributions', 'Hypothesis Testing'],
         },
@@ -379,7 +402,8 @@ export const CourseHierarchy: Story = {
         id: 'advanced-calc',
         type: 'treeNode',
         data: {
-          label: 'Advanced Calculus',
+          id: 'advanced-calc',
+          text: 'Advanced Calculus',
           style: 'quarterProgress',
           subModules: ['Multivariable', 'Vector Calculus'],
         },
@@ -388,7 +412,8 @@ export const CourseHierarchy: Story = {
         id: 'differential',
         type: 'treeNode',
         data: {
-          label: 'Differential Equations',
+          id: 'differential',
+          text: 'Differential Equations',
           style: 'normal',
           disabled: true,
         },
@@ -415,7 +440,8 @@ export const HorizontalTree: Story = {
         id: '1',
         type: 'treeNode',
         data: {
-          label: 'Start',
+          id: '1',
+          text: 'Start',
           style: 'complete',
         },
       },
@@ -423,7 +449,8 @@ export const HorizontalTree: Story = {
         id: '2',
         type: 'treeNode',
         data: {
-          label: 'Beginner Level',
+          id: '2',
+          text: 'Beginner Level',
           style: 'complete',
           subModules: ['Basics', 'Practice'],
         },
@@ -432,7 +459,8 @@ export const HorizontalTree: Story = {
         id: '3',
         type: 'treeNode',
         data: {
-          label: 'Intermediate Level',
+          id: '3',
+          text: 'Intermediate Level',
           style: 'inProgress',
           subModules: ['Theory', 'Applications'],
         },
@@ -441,7 +469,8 @@ export const HorizontalTree: Story = {
         id: '4',
         type: 'treeNode',
         data: {
-          label: 'Advanced Level',
+          id: '4',
+          text: 'Advanced Level',
           style: 'normal',
           subModules: ['Research', 'Projects'],
         },
@@ -475,7 +504,8 @@ export const MixedStatesTree: Story = {
         id: '1',
         type: 'treeNode',
         data: {
-          label: 'Course Overview',
+          id: '1',
+          text: 'Course Overview',
           style: 'halfProgress',
           isSelected: true,
         },
@@ -484,7 +514,8 @@ export const MixedStatesTree: Story = {
         id: '2',
         type: 'treeNode',
         data: {
-          label: 'Module 1: Completed',
+          id: '2',
+          text: 'Module 1: Completed',
           style: 'complete',
           subModules: ['Lesson 1', 'Lesson 2', 'Lesson 3'],
         },
@@ -493,7 +524,8 @@ export const MixedStatesTree: Story = {
         id: '3',
         type: 'treeNode',
         data: {
-          label: 'Module 2: In Progress',
+          id: '3',
+          text: 'Module 2: In Progress',
           style: 'threeQuarterProgress',
           subModules: ['Lesson 1', 'Lesson 2'],
           canZoom: true,
@@ -504,7 +536,8 @@ export const MixedStatesTree: Story = {
         id: '4',
         type: 'treeNode',
         data: {
-          label: 'Module 3: Not Started',
+          id: '4',
+          text: 'Module 3: Not Started',
           style: 'normal',
           subModules: ['Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4'],
         },
@@ -513,7 +546,8 @@ export const MixedStatesTree: Story = {
         id: '5',
         type: 'treeNode',
         data: {
-          label: 'Quiz 1',
+          id: '5',
+          text: 'Quiz 1',
           style: 'complete',
           hasQuestions: true,
         },
@@ -522,7 +556,8 @@ export const MixedStatesTree: Story = {
         id: '6',
         type: 'treeNode',
         data: {
-          label: 'Quiz 2',
+          id: '6',
+          text: 'Quiz 2',
           style: 'quarterProgress',
           hasQuestions: true,
         },
@@ -548,7 +583,8 @@ export const LargeCurriculum: Story = {
         id: 'cs-101',
         type: 'treeNode',
         data: {
-          label: 'Computer Science 101',
+          id: 'cs-101',
+          text: 'Computer Science 101',
           style: 'halfProgress',
           canZoom: true,
         },
@@ -557,7 +593,8 @@ export const LargeCurriculum: Story = {
         id: 'intro',
         type: 'treeNode',
         data: {
-          label: 'Introduction',
+          id: 'intro',
+          text: 'Introduction',
           style: 'complete',
           subModules: ['Overview', 'Setup'],
         },
@@ -566,7 +603,8 @@ export const LargeCurriculum: Story = {
         id: 'programming',
         type: 'treeNode',
         data: {
-          label: 'Programming Basics',
+          id: 'programming',
+          text: 'Programming Basics',
           style: 'complete',
           subModules: ['Syntax', 'Variables', 'Control Flow'],
         },
@@ -575,7 +613,8 @@ export const LargeCurriculum: Story = {
         id: 'data-struct',
         type: 'treeNode',
         data: {
-          label: 'Data Structures',
+          id: 'data-struct',
+          text: 'Data Structures',
           style: 'inProgress',
           subModules: ['Arrays', 'Linked Lists', 'Stacks', 'Queues'],
           isSelected: true,
@@ -585,7 +624,8 @@ export const LargeCurriculum: Story = {
         id: 'algorithms',
         type: 'treeNode',
         data: {
-          label: 'Algorithms',
+          id: 'algorithms',
+          text: 'Algorithms',
           style: 'quarterProgress',
           subModules: ['Sorting', 'Searching', 'Recursion'],
         },
@@ -594,7 +634,8 @@ export const LargeCurriculum: Story = {
         id: 'final',
         type: 'treeNode',
         data: {
-          label: 'Final Project',
+          id: 'final',
+          text: 'Final Project',
           style: 'normal',
           disabled: true,
         },
@@ -603,7 +644,8 @@ export const LargeCurriculum: Story = {
         id: 'arrays',
         type: 'treeNode',
         data: {
-          label: 'Arrays Deep Dive',
+          id: 'arrays',
+          text: 'Arrays Deep Dive',
           style: 'complete',
           subModules: ['1D Arrays', '2D Arrays', 'Dynamic Arrays'],
         },
@@ -612,7 +654,8 @@ export const LargeCurriculum: Story = {
         id: 'trees',
         type: 'treeNode',
         data: {
-          label: 'Trees & Graphs',
+          id: 'trees',
+          text: 'Trees & Graphs',
           style: 'halfProgress',
           subModules: ['Binary Trees', 'BST', 'Heaps', 'Graphs'],
         },
@@ -621,7 +664,8 @@ export const LargeCurriculum: Story = {
         id: 'sorting',
         type: 'treeNode',
         data: {
-          label: 'Sorting Algorithms',
+          id: 'sorting',
+          text: 'Sorting Algorithms',
           style: 'normal',
           subModules: ['Bubble', 'Merge', 'Quick'],
         },
@@ -630,7 +674,8 @@ export const LargeCurriculum: Story = {
         id: 'bst',
         type: 'treeNode',
         data: {
-          label: 'Binary Search Trees',
+          id: 'bst',
+          text: 'Binary Search Trees',
           style: 'threeQuarterProgress',
           hasQuestions: true,
         },
@@ -639,7 +684,8 @@ export const LargeCurriculum: Story = {
         id: 'graph-algos',
         type: 'treeNode',
         data: {
-          label: 'Graph Algorithms',
+          id: 'graph-algos',
+          text: 'Graph Algorithms',
           style: 'quarterProgress',
           subModules: ['DFS', 'BFS', 'Dijkstra'],
         },
@@ -682,7 +728,8 @@ export const RTLTree: Story = {
         id: '1',
         type: 'treeNode',
         data: {
-          label: 'מדעי המחשב',
+          id: '1',
+          text: 'מדעי המחשב',
           language: 'he',
           style: 'complete',
         },
@@ -691,7 +738,8 @@ export const RTLTree: Story = {
         id: '2',
         type: 'treeNode',
         data: {
-          label: 'תכנות',
+          id: '2',
+          text: 'תכנות',
           language: 'he',
           style: 'complete',
           subModules: ['משתנים', 'פונקציות', 'לולאות'],
@@ -701,7 +749,8 @@ export const RTLTree: Story = {
         id: '3',
         type: 'treeNode',
         data: {
-          label: 'מבני נתונים',
+          id: '3',
+          text: 'מבני נתונים',
           language: 'he',
           style: 'inProgress',
           subModules: ['מערכים', 'רשימות', 'עצים'],
@@ -711,7 +760,8 @@ export const RTLTree: Story = {
         id: '4',
         type: 'treeNode',
         data: {
-          label: 'אלגוריתמים',
+          id: '4',
+          text: 'אלגוריתמים',
           language: 'he',
           style: 'normal',
         },
@@ -737,7 +787,8 @@ export const SearchHighlightTree: Story = {
         id: '1',
         type: 'treeNode',
         data: {
-          label: 'Database Systems',
+          id: '1',
+          text: 'Database Systems',
           searchTerm,
           style: 'complete',
         },
@@ -746,7 +797,8 @@ export const SearchHighlightTree: Story = {
         id: '2',
         type: 'treeNode',
         data: {
-          label: 'Data Modeling',
+          id: '2',
+          text: 'Data Modeling',
           searchTerm,
           style: 'complete',
           subModules: ['ER Diagrams', 'Data Types', 'Normalization'],
@@ -757,7 +809,8 @@ export const SearchHighlightTree: Story = {
         id: '3',
         type: 'treeNode',
         data: {
-          label: 'SQL Fundamentals',
+          id: '3',
+          text: 'SQL Fundamentals',
           searchTerm,
           style: 'inProgress',
           subModules: ['SELECT', 'JOIN', 'Data Aggregation'],
@@ -767,7 +820,8 @@ export const SearchHighlightTree: Story = {
         id: '4',
         type: 'treeNode',
         data: {
-          label: 'NoSQL Databases',
+          id: '4',
+          text: 'NoSQL Databases',
           searchTerm,
           style: 'normal',
           subModules: ['MongoDB', 'Data Structures'],

@@ -1,8 +1,8 @@
 import type { BlockStyleType } from './BlockStyleType';
 import type { Direction } from './Direction';
+import type { BlockEntity } from './BlockEntity';
 
-export interface TreeNodeData extends Record<string, unknown> {
-  readonly label: string;
+export interface TreeNodeData extends BlockEntity, Record<string, unknown> {
   readonly subModules?: readonly string[];
   readonly onClick?: () => void;
   readonly onToggleCollapse?: (nodeId: string, collapsed: boolean) => void;
