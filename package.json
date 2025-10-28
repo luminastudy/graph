@@ -1,6 +1,6 @@
 {
   "name": "@lumina-study/graph",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Graph library for Lumina Study",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -11,7 +11,9 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./styles": "./dist/graph.css",
+    "./dist/graph.css": "./dist/graph.css"
   },
   "files": [
     "dist"
